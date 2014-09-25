@@ -1,0 +1,30 @@
+:host {
+  display: block;
+}
+
+.app-button {
+  color: #50595D;
+  margin: 1em;
+  width: 15em;
+  height: 15em;
+  vertical-align: middle;
+  background-color: #FBFBFB;
+  -moz-box-shadow: 0 5px 5px -3px #b5b5b5;
+  -webkit-box-shadow: 0 5px 5px -3px #B5B5B5;
+  box-shadow: 0 5px 5px -3px #B5B5B5;
+}
+}
+
+.app-button:hover {
+  background: #E2E2E2;
+}
+
+.app-button::shadow #ripple {
+  color: #50595D;
+}
+
+.app-button::shadow #icon {
+  width: 9em;
+  height: 9em;
+  margin: 1em;
+}

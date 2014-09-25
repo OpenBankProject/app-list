@@ -1,0 +1,25 @@
+{
+  "name": "app-list",
+  "keywords": [
+    "seed",
+    "polymer",
+    "web-components"
+  ],
+  "main": "app-list.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.4.0",
+    "paper-button": "Polymer/paper-button#~0.4.1",
+    "polymer-jsonp": "Azd325/polymer-jsonp"
+  },
+  "homepage": "https://github.com/OpenBankProject/app-list",
+  "_release": "de53a05e07",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "de53a05e07d6b170940c6d3dca11498caf3ff577"
+  },
+  "_source": "git://github.com/OpenBankProject/app-list.git",
+  "_target": "master",
+  "_originalSource": "OpenBankProject/app-list",
+  "_direct": true
+}

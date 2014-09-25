@@ -1,0 +1,62 @@
+<link rel="import" href="../polymer-jsonp/polymer-jsonp.html">
+<link rel="import" href="../paper-button/paper-button.html">
+
+<!--
+Element providing solution to no problem in particular.
+
+##### Example
+
+    <app-list></app-list>
+
+@element app-list
+@blurb Element providing solution to no problem in particular.
+@status alpha
+@homepage http://azd325.github.io/app-list
+-->
+<polymer-element name="app-list" attributes="url">
+
+  <template>
+
+    <link rel="stylesheet" href="app-list.css" />
+
+    <polymer-jsonp id="ajax" auto url="{{url}}?callback="></polymer-jsonp>
+
+    <content>
+        <template id="apps" repeat="{{item in apps}}" index="i">
+            <paper-button class="app-button" label="{{item.name}}" raisedButton link="/app/?id={{item.uuid}}"
+  on-tap="{{goLink}}" iconSrc="/media/{{item.images[0].image}}"></paper-button>
+        </template>
+    </content>
+
+  </template>
+
+  <script>
+
+    Polymer('app-list', {
+      apps: [],
+      /**
+       * A string to the api host resource
+       *
+       * @attribute url
+       * @type string
+       */
+      url: 'http://localhost:8000/api/apps/',
+      ready: function() {
+        this.$.apps.model = this.apps;
+        this.$.ajax.addEventListener('polymer-response',
+            function (e) {
+                this.apps = {apps: e.detail.response};
+                this.$.apps.model = {apps: e.detail.response};
+                this.fire('app-list-load', {response: e.detail.response});
+            }.bind(this)
+        );
+      },
+      goLink: function(e) {
+        window.location.href = e.target.getAttribute('link');
+      }
+
+    });
+
+  </script>
+
+</polymer-element>
